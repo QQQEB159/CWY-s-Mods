@@ -641,8 +641,8 @@ class Paths
 	}
 	#end
 
-	private static var _assetCache:Map<LimeAssetType, Array<String>> = new Map();
-    static public function readDirectory(key:String, type:LimeAssetType = TEXT):Array<String> {
+	private static var _assetCache:Map<AssetType, Array<String>> = new Map();
+    static public function readDirectory(key:String, type:AssetType = TEXT):Array<String> {
         var assetsList = _assetCache.get(type);
         if (assetsList == null) {
             assetsList = Assets.list(type);
