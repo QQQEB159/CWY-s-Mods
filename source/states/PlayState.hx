@@ -2576,18 +2576,6 @@ class PlayState extends MusicBeatState
 	public var noteGroup:FlxTypedGroup<FlxBasic>;
 
 	private function cachePopUpScore()
-	{
-		var uiFolder:String = "";
-		if (stageUI != "normal")
-			uiFolder = uiPrefix + "UI/";
-
-		for (rating in ratingsData)
-			Paths.image(uiFolder + rating.image + uiPostfix);
-		for (i in 0...10)
-			Paths.image(uiFolder + 'num' + i + uiPostfix);
-	}
-
-	private function cachePopUpScore()
 		{
 			var uiFolder:String = "";
 			if (stageUI != "normal")
