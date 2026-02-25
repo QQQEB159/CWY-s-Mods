@@ -640,6 +640,7 @@ class Paths
 		spr.loadAtlasEx(folderOrImg, spriteJson, animationJson);
 	}
 	#end
+	
 	public static function readDirectory(directory:String):Array<String>
 	{
 		#if MODS_ALLOWED
