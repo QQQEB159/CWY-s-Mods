@@ -640,41 +640,24 @@ class Paths
 		spr.loadAtlasEx(folderOrImg, spriteJson, animationJson);
 	}
 	#end
-
-	private static var _assetCache:Map<AssetType, Array<String>> = new Map();
-    static public function readDirectory(key:String, type:AssetType = TEXT):Array<String> {
-        var assetsList = _assetCache.get(type);
-        if (assetsList == null) {
-            assetsList = Assets.list(type);
-            _assetCache.set(type, assetsList);
-        }
-        var result = [];
-        for (path in assetsList) {
-            if (path.startsWith(key)) {
-                result.push(path);
-            }
-        }
-        return result;
-    }
-
-	//public static function readDirectory(directory:String):Array<String>
-	//{
-		//#if MODS_ALLOWED
-		//return FileSystem.readDirectory(directory);
-		//#else
-		//var dirs:Array<String> = [];
-		//for(dir in Assets.list().filter(folder -> folder.startsWith(directory)))
-		//{
-			//@:privateAccess
-			//for(library in lime.utils.Assets.libraries.keys())
-			//{
-				//if(library != 'default' && Assets.exists('$library:$dir') && (!dirs.contains('$library:$dir') || !dirs.contains(dir)))
-					//dirs.push('$library:$dir');
-				//else if(Assets.exists(dir) && !dirs.contains(dir))
-					//dirs.push(dir);
-			//}
-		//}
-		//return dirs.map(dir -> dir.substr(dir.lastIndexOf("/") + 1));
-		//#end
-	//}
+	public static function readDirectory(directory:String):Array<String>
+	{
+		#if MODS_ALLOWED
+		return FileSystem.readDirectory(directory);
+		#else
+		var dirs:Array<String> = [];
+		for(dir in Assets.list().filter(folder -> folder.startsWith(directory)))
+		{
+			@:privateAccess
+			for(library in lime.utils.Assets.libraries.keys())
+			{
+				if(library != 'default' && Assets.exists('$library:$dir') && (!dirs.contains('$library:$dir') || !dirs.contains(dir)))
+					dirs.push('$library:$dir');
+				else if(Assets.exists(dir) && !dirs.contains(dir))
+					dirs.push(dir);
+			}
+		}
+		return dirs.map(dir -> dir.substr(dir.lastIndexOf("/") + 1));
+		#end
+	}
 }
