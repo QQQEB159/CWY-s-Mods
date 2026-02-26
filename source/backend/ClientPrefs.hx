@@ -16,6 +16,9 @@ import states.TitleState;
 	public var screensaver:Bool = false;
 	public var wideScreen:Bool = false;
 	public var hitboxType:String = "Gradient";
+	#if android
+	public var storageType:String = "EXTERNAL_DATA";
+	#end
 	public var popUpRating:Bool = true;
 	public var vsync:Bool = false;
 	public var gameOverVibration:Bool = false;
