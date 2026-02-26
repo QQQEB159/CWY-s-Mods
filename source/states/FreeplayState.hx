@@ -273,7 +273,7 @@ class FreeplayState extends MusicBeatState
 		changeSelection();
 		updateTexts();
 		super.create();
-		addTouchPad('LEFT_FULL', 'A_B_C_X_Y_Z');
+		addTouchPad('LEFT_FULL', 'A_B');
 	}
 
 	override function closeSubState()
@@ -281,7 +281,7 @@ class FreeplayState extends MusicBeatState
 		changeSelection(0, false);
 		persistentUpdate = true;
 		super.closeSubState();
-		addTouchPad('LEFT_FULL', 'A_B_C_X_Y_Z');
+		//addTouchPad('LEFT_FULL', 'A_B_C_X_Y_Z');
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
@@ -325,7 +325,7 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 
 		var shiftMult:Int = 1;
-		if(FlxG.keys.pressed.SHIFT || touchPad.buttonZ.pressed) shiftMult = 3;
+		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
 
 		if(songs.length > 1)
 			{
@@ -419,7 +419,7 @@ class FreeplayState extends MusicBeatState
 			//}
 		}
 
-		if(FlxG.keys.justPressed.CONTROL || touchPad.buttonC.justPressed)
+		/*if(FlxG.keys.justPressed.CONTROL || touchPad.buttonC.justPressed)
 		{
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
@@ -456,8 +456,8 @@ class FreeplayState extends MusicBeatState
 				{
 					playPreviewMusic(true);
 				}
-			}
-		else if (controls.ACCEPT)
+			}*/
+		if (controls.ACCEPT)
 		{
 
 			
@@ -520,13 +520,13 @@ class FreeplayState extends MusicBeatState
 			DiscordClient.loadModRPC();
 			#end
 		}
-		else if(controls.RESET || touchPad.buttonY.justPressed)
+		/*else if(controls.RESET || touchPad.buttonY.justPressed)
 		{
 			persistentUpdate = false;
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
 			removeTouchPad();
 			FlxG.sound.play(Paths.sound('scrollMenu'));
-		}
+		}*/
 		updateTexts(elapsed);
 		super.update(elapsed);
 	}

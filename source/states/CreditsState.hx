@@ -52,6 +52,7 @@ class CreditsState extends MusicBeatState
 			["XJ-Akers",		"XJ-Akers",		"painting",					"https://space.bilibili.com/1684262832",	"444444"],
 			["Star Fison",		"Star Fison",		"arrangement",					"https://space.bilibili.com/515522141",	"444444"],
 			["woofwolf",		"woofwolf",		"painting",					"https://space.bilibili.com/514249942?spm_id_from=333.1387.follow.user_card.click",	"444444"],
+			["qqqeb",		"qqqeb",		"android porter",					"https://b23.tv/ON1Aslh",	"444444"],
 			["Join us!", "QQ", "1038989304", "https://space.bilibili.com/3493119353948379?spm_id_from=333.337.0.0", "5165F6"]
 		];
 		for (i in defaultList) creditsStuff.push(i);
