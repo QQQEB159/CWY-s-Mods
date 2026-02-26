@@ -879,7 +879,7 @@ class FreeplayItem extends FlxSpriteGroup
     public var bg:FlxSprite;
     public var text:FlxText;
     public var icon:HealthIcon;
-	public var itemHeight:Float;s
+	public var itemHeight:Float;
 
     public function new(x:Float, y:Float, songName:String, songCharacter:String, ?fixedWidth:Int = 0)
     {
